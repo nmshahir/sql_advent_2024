@@ -1,2 +1,2 @@
 # sql_advent_2024
-SQL Advent Solution
+Solutions to the SQL Advent Calendar run by Data Dawn - https://www.sqlcalendar.com/
