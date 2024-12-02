@@ -1,0 +1,4 @@
+SELECT customer_name, COUNT(DISTINCT activity) AS distinct_activity
+FROM rentals
+GROUP BY customer_name
+HAVING distinct_activity > 1;
