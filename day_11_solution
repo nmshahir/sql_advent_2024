@@ -1,0 +1,2 @@
+SELECT name, birthday FROM family_members
+WHERE strftime('%m',birthday) = '12'
