@@ -1,0 +1,9 @@
+SELECT friend_name, 
+COUNT(resolution) AS num_of_resolutions,
+SUM(is_completed) AS [completed resolutions],
+AVG(is_completed)*100  AS success_rate,
+CASE WHEN AVG(is_completed) > 0.75 THEN 'Green'
+     WHEN AVG(is_completed) <= 0.75 AND AVG(is_completed) >= 0.5 THEN 'Yellow'
+            ELSE 'Red' END AS success_category
+FROM resolutions
+GROUP BY friend_name
