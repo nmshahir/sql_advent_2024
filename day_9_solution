@@ -1,0 +1,13 @@
+WITH cte AS (
+    SELECT menu.dish_name, 
+    events.event_name, 
+    ROUND(menu.calories/menu.weight_g,2) AS calorie_density,
+    ROW_NUMBER() OVER (
+        PARTITION BY event_name ORDER BY ROUND(menu.calories/menu.weight_g,2) DESC
+        ) AS rank_in_event
+    FROM events
+    INNER JOIN menu
+    ON events.event_id=menu.event_id)
+SELECT dish_name, event_name, calorie_density 
+FROM cte 
+WHERE rank_in_event <= 3;
