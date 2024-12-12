@@ -1,0 +1,8 @@
+SELECT snow_globes.globe_name, 
+COUNT(figurines.figurine_type) AS [number of figurines], 
+snow_globes.material 
+FROM snow_globes
+INNER JOIN figurines ON snow_globes.globe_id = figurines.globe_id
+GROUP BY snow_globes.globe_name
+ORDER BY COUNT(figurines.figurine_type) DESC
+LIMIT 3
