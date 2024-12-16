@@ -1,0 +1,8 @@
+SELECT family_members.name,
+COUNT(parent_child_relationships.child_id) AS [total_num_children]
+FROM family_members
+INNER JOIN parent_child_relationships
+ON family_members.member_id = parent_child_relationships.parent_id
+GROUP BY family_members.name
+ORDER BY total_num_children DESC
+LIMIT 3
