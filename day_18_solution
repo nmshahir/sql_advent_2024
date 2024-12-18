@@ -1,0 +1,7 @@
+SELECT activities.activity_name, AVG(activity_ratings.rating)
+FROM activities
+INNER JOIN activity_ratings
+ON activities.activity_id = activity_ratings.activity_id
+GROUP BY activities.activity_name
+ORDER BY AVG(activity_ratings.rating) DESC
+LIMIT 2
