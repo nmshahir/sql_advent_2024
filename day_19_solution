@@ -1,0 +1,7 @@
+SELECT polar_bears.bear_name, MAX(meal_log.food_weight_kg) AS biggest_meal_kg
+FROM polar_bears 
+INNER JOIN meal_log
+ON polar_bears.bear_id = meal_log.bear_id
+WHERE strftime('%m',meal_log.date) = '12' AND strftime('%Y',meal_log.date) = '2024'
+GROUP BY polar_bears.bear_name
+ORDER BY MAX(meal_log.food_weight_kg) DESC
