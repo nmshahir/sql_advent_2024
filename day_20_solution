@@ -1,0 +1,5 @@
+SELECT DISTINCT(vendors.vendor_name) 
+FROM vendors
+INNER JOIN item_prices
+ON vendors.vendor_id = item_prices.vendor_id
+WHERE item_prices.price_usd < 10
