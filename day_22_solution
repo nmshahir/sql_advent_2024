@@ -1,0 +1,5 @@
+SELECT guests.guest_name 
+FROM guests
+WHERE guests.guest_id 
+NOT IN
+(SELECT guest_id FROM guest_gifts)
