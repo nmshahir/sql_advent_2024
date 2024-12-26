@@ -1,0 +1,5 @@
+SELECT Z.*,  (Z.weight - z.prev_weight) as weight_change
+FROM (SELECT [day_of_month], weight,
+      LAG (weight, 1) 
+      OVER (ORDER BY day_of_month) AS prev_weight
+      FROM grinch_weight_log) Z
