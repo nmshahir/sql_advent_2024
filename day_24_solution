@@ -1,0 +1,8 @@
+SELECT santa1.delivery_date,
+       santa1.gifts_delivered,
+       SUM(santa2.gifts_delivered) AS [cumulative_gifts]
+FROM deliveries santa1
+JOIN deliveries santa2
+ON santa1.delivery_date >= santa2.delivery_date
+GROUP BY santa1.delivery_date, santa1.gifts_delivered
+ORDER BY santa1.delivery_date;
